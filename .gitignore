@@ -1,0 +1,7 @@
+*.PBP
+*.o
+*.prx
+*.SFO
+*.elf
+.vscode/*
+.vscode*
