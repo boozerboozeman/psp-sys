@@ -37,9 +37,8 @@ int main() {
     sceCtrlSetSamplingCycle(0);
     sceCtrlSetSamplingMode(PSP_CTRL_MODE_ANALOG);
     pspDebugScreenClear();
-    pspDebugScreenPrintf("\n--------- PSP SYSTEM SYSTEM INFO BY MIRRO-IW ---------\n");
-    /* get all the shit we need for the battery, if there is one */
-
+    pspDebugScreenPrintf("\n--------- PSP SYSTEM SYSTEM INFO BY BOOZERBOOZEMAN ---------\n");
+    
     if (scePowerIsBatteryExist() == 1) {
         battery_temp = scePowerGetBatteryTemp();
         battery_voltage = scePowerGetBatteryVolt();
@@ -52,13 +51,15 @@ int main() {
         pspDebugScreenPrintf("No battery was detected\n");
     }
     else {
-        pspDebugScreenPrintf("Battery temperature: %d\n", battery_temp);
+        pspDebugScreenPrintf("Battery temperature: %d C\n", battery_temp);
         pspDebugScreenPrintf("Battery voltage: %d v\n", battery_voltage);
-        pspDebugScreenPrintf("Remaining time: %d minutes\n", battery_remaining_time);
+        pspDebugScreenPrintf("Remaining battery time: %d minutes\n", battery_remaining_time);
         pspDebugScreenPrintf("Battery percentage: %d\n", battery_percentage);
     }
     pspDebugScreenPrintf("CPU Clock: %d Mhz\n", cpu_frequency);
     pspDebugScreenPrintf("BUS Clock: %d Mhz\n", bus_frequency);
+    
+
     pspDebugScreenPrintf("\n\n\nPress START to refresh values.\n");
     
     
@@ -68,6 +69,7 @@ int main() {
  
         if(padData.Buttons & PSP_CTRL_START){
             pspDebugScreenPrintf("Refreshing values.");
+            sceKernelDelayThread(2 * 100000);
             main();
         }
 
