@@ -37,7 +37,7 @@ int main() {
     sceCtrlSetSamplingCycle(0);
     sceCtrlSetSamplingMode(PSP_CTRL_MODE_ANALOG);
     pspDebugScreenClear();
-    pspDebugScreenPrintf("\n--------- PSP SYSTEM SYSTEM INFO BY BOOZERBOOZEMAN ---------\n");
+    pspDebugScreenPrintf("\n--------- PSP SYSTEM SYSTEM INFO BY INTHECATSDREAMS ---------\n");
     
     if (scePowerIsBatteryExist() == 1) {
         battery_temp = scePowerGetBatteryTemp();
